@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import DashboardPage from './pages/DashboardPage'
 import ClientTrackerPage from './pages/ClientTrackerPage'
@@ -15,7 +15,7 @@ import ClientDetailModal from './components/ClientDetailModal'
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <PortalProvider>
         <Routes>
           <Route path="/" element={<LoginPage />} />
@@ -37,7 +37,7 @@ function App() {
         <ImportExportModal />
         <ClientDetailModal />
       </PortalProvider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
