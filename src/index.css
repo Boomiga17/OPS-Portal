@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@600;700&family=Roboto:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Alegreya SC', ui-serif, Georgia, serif;
+  --font-sans: 'Roboto', system-ui, 'Segoe UI', sans-serif;
+
+  --color-brisque-red: #e0122b;
+  --color-brisque-red-dark: #a10c20;
+  --color-brisque-black: #0a0a0a;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background: #f1f3f5;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+@keyframes donut-center-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rocket-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.rocket-float {
+  animation: rocket-float 3.2s ease-in-out 2s infinite;
+}
+
+@keyframes migration-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes migration-art-drift {
+  0%,
+  73% {
+    transform: translate3d(-1%, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(1%, -1%, 0) scale(1.025);
+  }
+}
+
+.migration-art-card {
+  animation: migration-card-enter 500ms ease-out both;
+}
+
+.migration-art-card:nth-child(1) {
+  animation-delay: 150ms;
+}
+
+.migration-art-card:nth-child(2) {
+  animation-delay: 300ms;
+}
+
+.migration-art-card:nth-child(3) {
+  animation-delay: 450ms;
+}
+
+.migration-art-card:nth-child(4) {
+  animation-delay: 600ms;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   GLOBAL DARK MODE THEME STYLES
+   ───────────────────────────────────────────────────────────── */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Root background */
+html.dark,
+html.dark body,
+html.dark #root {
+  background-color: #0b0c10 !important;
+}
+
+/* Outer layout background */
+html.dark .bg-\[\#f1f3f5\] {
+  background-color: #0b0c10 !important;
+}
+
+/* White cards, headers, tables, popovers and modal windows */
+html.dark .bg-white:not(aside .bg-white):not(.sidebar-logo-card) {
+  background-color: #14161d !important;
+  border-color: #232733 !important;
+  color: #f3f4f6 !important;
+}
+
+/* Sub-panels, secondary containers, and neutral boxes */
+html.dark .bg-\[\#f8f9fa\],
+html.dark .bg-\[\#fafafa\],
+html.dark .bg-\[\#fbfbfb\],
+html.dark .bg-neutral-50 {
+  background-color: #1b1e28 !important;
+  border-color: #282d3b !important;
+}
+
+html.dark .bg-neutral-100 {
+  background-color: #232734 !important;
+}
+
+/* Table header & soft brand tints */
+html.dark .bg-\[\#fff1f2\] {
+  background-color: #2d1419 !important;
+  color: #fca5a5 !important;
+}
+
+html.dark .bg-\[\#fff8f8\] {
+  background-color: #241417 !important;
+}
+
+/* Text Colors */
+html.dark .text-neutral-900,
+html.dark .text-neutral-800 {
+  color: #f9fafb !important;
+}
+
+html.dark .text-neutral-700 {
+  color: #e5e7eb !important;
+}
+
+html.dark .text-neutral-600,
+html.dark .text-neutral-500 {
+  color: #9ca3af !important;
+}
+
+html.dark .text-neutral-400 {
+  color: #6b7280 !important;
+}
+
+/* Borders and Dividers */
+html.dark .border-neutral-100,
+html.dark .border-neutral-200 {
+  border-color: #232733 !important;
+}
+
+html.dark .divide-neutral-50 > :not([hidden]) ~ :not([hidden]),
+html.dark .divide-neutral-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #232733 !important;
+}
+
+/* Form Inputs, Selects & Searches */
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #1b1e28 !important;
+  color: #f9fafb !important;
+  border-color: #2b3142 !important;
+}
+
+html.dark input::placeholder {
+  color: #64748b !important;
+}
+
+/* Interactive Hover States in Dark Mode */
+html.dark .hover\:bg-neutral-50:hover,
+html.dark .hover\:bg-neutral-100:hover {
+  background-color: #232838 !important;
+}
+
+html.dark .hover\:bg-neutral-200:hover {
+  background-color: #2c3345 !important;
+}
+
+/* Shadow elevation with subtle dark borders */
+html.dark .shadow-sm {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .shadow-md,
+html.dark .shadow-lg,
+html.dark .shadow-xl,
+html.dark .shadow-2xl {
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Status Badges in Dark Mode */
+html.dark .bg-\[\#fce8e8\] {
+  background-color: #381518 !important;
+  color: #f87171 !important;
+}
+
+html.dark .bg-\[\#ffeed9\] {
+  background-color: #382210 !important;
+  color: #fb923c !important;
+}
+
+html.dark .bg-\[\#e5f4e8\] {
+  background-color: #122c1c !important;
+  color: #4ade80 !important;
+}
+
+html.dark .bg-\[\#ede9fe\] {
+  background-color: #24163d !important;
+  color: #c084fc !important;
+}
+
+html.dark .bg-\[\#fff3b5\] {
+  background-color: #352b0d !important;
+  color: #fde047 !important;
+}
+
+/* SVG Chart Track in Dark Mode */
+html.dark svg circle[stroke="#eef0f2"] {
+  stroke: #252b3b !important;
+}
