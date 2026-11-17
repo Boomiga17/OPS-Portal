@@ -69,34 +69,24 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               animate={{ width: 'auto' }}
               transition={LAYOUT}
             >
-              <div className="flex items-center gap-2">
-                <motion.span
-                  className="block whitespace-nowrap font-black text-neutral-900 tracking-[0.14em] uppercase"
-                  style={{
-                    fontSize: 48,
-                    fontFamily: "'Roboto', system-ui, sans-serif",
-                    lineHeight: 1,
-                  }}
-                  initial={{ opacity: 0, x: 50, filter: 'blur(8px)' }}
-                  animate={{ opacity: 1, x: 0,  filter: 'blur(0px)' }}
-                  transition={{
-                    opacity: { duration: 0.55, ease: EXPO },
-                    x:       { duration: 0.75, ease: EXPO },
-                    filter:  { duration: 0.65, ease: 'easeOut' },
-                    delay: 0.05,
-                  }}
-                >
-                  ORBIT
-                </motion.span>
-                <motion.span
-                  className="rounded-md bg-[#ef3340] text-white px-2 py-0.5 text-xs font-bold tracking-wider uppercase"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.25, duration: 0.4 }}
-                >
-                  OPS
-                </motion.span>
-              </div>
+              <motion.span
+                className="block whitespace-nowrap font-black text-neutral-900 tracking-[0.14em] uppercase"
+                style={{
+                  fontSize: 48,
+                  fontFamily: "'Roboto', system-ui, sans-serif",
+                  lineHeight: 1,
+                }}
+                initial={{ opacity: 0, x: 50, filter: 'blur(8px)' }}
+                animate={{ opacity: 1, x: 0,  filter: 'blur(0px)' }}
+                transition={{
+                  opacity: { duration: 0.55, ease: EXPO },
+                  x:       { duration: 0.75, ease: EXPO },
+                  filter:  { duration: 0.65, ease: 'easeOut' },
+                  delay: 0.05,
+                }}
+              >
+                ORBIT
+              </motion.span>
             </motion.div>
           )}
         </AnimatePresence>
