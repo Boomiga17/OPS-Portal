@@ -303,7 +303,7 @@ export default function AdminPanelPage() {
       <div className="flex-1 py-1 min-w-0">
         <div className="w-full pb-10">
           {/* Responsive Header */}
-          <Header title="Brisque OPS" subtitle="Operations Command Center" searchPlaceholder="Search Admin Panel..." />
+          <Header title="Orbit OPS" subtitle="Operations Command Center" searchPlaceholder="Search Admin Panel..." />
 
           {/* Main Dashboard Blocks */}
           <motion.main 

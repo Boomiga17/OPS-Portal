@@ -1,11 +1,11 @@
 import { useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AuroraBackground from '../components/AuroraBackground'
-import BrisqueLogo from '../components/BrisqueLogo'
+import OrbitLogo from '../components/OrbitLogo'
 
 export default function LoginPage() {
   const navigate = useNavigate()
-  const [email, setEmail] = useState('admin@brisque.com')
+  const [email, setEmail] = useState('admin@orbit.com')
   const [password, setPassword] = useState('password123')
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -36,7 +36,7 @@ export default function LoginPage() {
       <div className="relative z-10 w-full max-w-[380px] rounded-2xl bg-white p-6 sm:p-8 shadow-2xl border border-neutral-100">
         <div className="text-center">
           <h1 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900">
-            Brisque OPS
+            Orbit OPS
           </h1>
           <p className="mt-1 text-xs sm:text-sm text-neutral-500">
             Sign in to the operations console
@@ -49,7 +49,7 @@ export default function LoginPage() {
               htmlFor="email"
               className="block text-sm font-medium text-neutral-800"
             >
-              Email<span className="text-brisque-red">*</span>
+              Email<span className="text-orbit-red">*</span>
             </label>
             <input
               id="email"
@@ -58,7 +58,7 @@ export default function LoginPage() {
               placeholder="jhon.doe@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full border-0 border-b border-neutral-200 bg-transparent py-1.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brisque-red focus:outline-none"
+              className="mt-1 block w-full border-0 border-b border-neutral-200 bg-transparent py-1.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-orbit-red focus:outline-none"
             />
           </div>
 
@@ -67,7 +67,7 @@ export default function LoginPage() {
               htmlFor="password"
               className="block text-sm font-medium text-neutral-800"
             >
-              Password<span className="text-brisque-red">*</span>
+              Password<span className="text-orbit-red">*</span>
             </label>
             <input
               id="password"
@@ -76,16 +76,16 @@ export default function LoginPage() {
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 block w-full border-0 border-b border-neutral-200 bg-transparent py-1.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-brisque-red focus:outline-none"
+              className="mt-1 block w-full border-0 border-b border-neutral-200 bg-transparent py-1.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-orbit-red focus:outline-none"
             />
           </div>
 
-          {error && <p className="text-sm text-brisque-red">{error}</p>}
+          {error && <p className="text-sm text-orbit-red">{error}</p>}
 
           <button
             type="submit"
             disabled={submitting}
-            className="flex w-full items-center justify-center gap-2 rounded-md bg-brisque-red py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brisque-red-dark disabled:cursor-not-allowed disabled:opacity-70"
+            className="flex w-full items-center justify-center gap-2 rounded-md bg-orbit-red py-2.5 text-sm font-semibold text-white transition-colors hover:bg-orbit-red-dark disabled:cursor-not-allowed disabled:opacity-70"
           >
             <svg
               width="16"
@@ -116,7 +116,7 @@ export default function LoginPage() {
       </div>
 
       <div className="relative z-10 mt-6">
-        <BrisqueLogo />
+        <OrbitLogo size="md" variant="white" />
       </div>
     </div>
   )

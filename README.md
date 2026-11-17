@@ -1,6 +1,6 @@
-# Brisque OPS Portal
+# Orbit OPS Portal
 
-OPS Portal designed and built for managing clients, features, migrations, and operational presentations.
+Orbit Operations Portal designed and built for managing clients, features, migrations, and operational presentations.
 
 🔗 **Live Demo:** [https://boomiga17.github.io/OPS-Portal/](https://boomiga17.github.io/OPS-Portal/)  
 🎨 **Figma Design:** [Brisque Ops Portal UI (Figma)](https://www.figma.com/design/ldw5zQTIt3hgaKgaiveHrF/Brisque-Ops-Portal-UI?node-id=164-2&t=Xe293NYuyNtR7A8Z-1)

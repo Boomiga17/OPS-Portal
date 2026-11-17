@@ -116,7 +116,7 @@ export default function ClientTrackerPage() {
       <div className="flex-1 py-1 min-w-0">
         <div className="w-full pb-10">
           {/* Responsive Header */}
-          <Header title="Brisque OPS" subtitle="Operations Command Center" searchPlaceholder="Search Clients..." />
+          <Header title="Orbit OPS" subtitle="Operations Command Center" searchPlaceholder="Search Clients..." />
 
           {/* Main Dashboard Blocks */}
           <motion.main 

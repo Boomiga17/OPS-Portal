@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import boltImg from '../assets/Brisque Icon 1.png'
+import OrbitIcon from './OrbitIcon'
 
 interface SplashScreenProps {
   onComplete: () => void
@@ -14,8 +14,8 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
   const [phase, setPhase] = useState(0)
   /**
    * 0 → white canvas                         (0ms)
-   * 1 → bolt glides in from above            (400ms)
-   * 2 → "brisque" glides in from right       (1500ms)
+   * 1 → orbit icon glides in from above      (400ms)
+   * 2 → "orbit" glides in from right         (1500ms)
    * 3 → fade out                             (3600ms)
    */
   useEffect(() => {
@@ -37,24 +37,14 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
       <motion.div
         layout
         className="flex items-center"
-        style={{ gap: phase >= 2 ? 12 : 0 }}
+        style={{ gap: phase >= 2 ? 14 : 0 }}
         transition={LAYOUT}
       >
-
-        {/* ── Bolt symbol ──
-            Drifts in from above: y -30 → 0
-            Fades in: opacity 0 → 1
-            Scales in gently: 0.7 → 1
-            Blur dissolves as it lands
-        */}
+        {/* ── Orbit icon symbol ── */}
         <AnimatePresence>
           {phase >= 1 && (
             <motion.div layout transition={LAYOUT}>
-              <motion.img
-                src={boltImg}
-                alt="Brisque"
-                className="object-contain select-none"
-                style={{ height: 62, width: 'auto' }}
+              <motion.div
                 initial={{ opacity: 0, y: -28, scale: 0.72, filter: 'blur(10px)' }}
                 animate={{ opacity: 1, y: 0,   scale: 1,    filter: 'blur(0px)'  }}
                 transition={{
@@ -63,15 +53,14 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
                   scale:   { duration: 0.85, ease: EXPO },
                   filter:  { duration: 0.7,  ease: 'easeOut' },
                 }}
-              />
+              >
+                <OrbitIcon size={64} />
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* ── Brand name ──
-            Glides in from the right: x 50 → 0
-            Bolt shifts left automatically via layout
-        */}
+        {/* ── Brand name ── */}
         <AnimatePresence>
           {phase >= 2 && (
             <motion.div
@@ -80,29 +69,37 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               animate={{ width: 'auto' }}
               transition={LAYOUT}
             >
-              <motion.span
-                className="block whitespace-nowrap font-bold text-[#ef3340]"
-                style={{
-                  fontSize: 50,
-                  letterSpacing: '-2px',
-                  fontFamily: 'Georgia, "Times New Roman", serif',
-                  lineHeight: 1,
-                }}
-                initial={{ opacity: 0, x: 50, filter: 'blur(8px)' }}
-                animate={{ opacity: 1, x: 0,  filter: 'blur(0px)' }}
-                transition={{
-                  opacity: { duration: 0.55, ease: EXPO },
-                  x:       { duration: 0.75, ease: EXPO },
-                  filter:  { duration: 0.65, ease: 'easeOut' },
-                  delay: 0.05,
-                }}
-              >
-                brisque
-              </motion.span>
+              <div className="flex items-center gap-2">
+                <motion.span
+                  className="block whitespace-nowrap font-black text-neutral-900 tracking-[0.14em] uppercase"
+                  style={{
+                    fontSize: 48,
+                    fontFamily: "'Roboto', system-ui, sans-serif",
+                    lineHeight: 1,
+                  }}
+                  initial={{ opacity: 0, x: 50, filter: 'blur(8px)' }}
+                  animate={{ opacity: 1, x: 0,  filter: 'blur(0px)' }}
+                  transition={{
+                    opacity: { duration: 0.55, ease: EXPO },
+                    x:       { duration: 0.75, ease: EXPO },
+                    filter:  { duration: 0.65, ease: 'easeOut' },
+                    delay: 0.05,
+                  }}
+                >
+                  ORBIT
+                </motion.span>
+                <motion.span
+                  className="rounded-md bg-[#ef3340] text-white px-2 py-0.5 text-xs font-bold tracking-wider uppercase"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.25, duration: 0.4 }}
+                >
+                  OPS
+                </motion.span>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
-
       </motion.div>
     </motion.div>
   )

@@ -5,6 +5,10 @@
   --font-serif: 'Alegreya SC', ui-serif, Georgia, serif;
   --font-sans: 'Roboto', system-ui, 'Segoe UI', sans-serif;
 
+  --color-orbit-red: #e0122b;
+  --color-orbit-red-dark: #a10c20;
+  --color-orbit-black: #0a0a0a;
+
   --color-brisque-red: #e0122b;
   --color-brisque-red-dark: #a10c20;
   --color-brisque-black: #0a0a0a;

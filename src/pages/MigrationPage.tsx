@@ -38,7 +38,7 @@ export interface MigrationItem {
   status?: string
 }
 
-const STORAGE_KEY = 'brisque_migrations_v2'
+const STORAGE_KEY = 'orbit_migrations_v2'
 
 const initialMigrations: MigrationItem[] = [
   { id: '1', name: 'Monks Allen', stack: 'React 18 → Next.js 14', priority: 'Low', stage: 'planning', quarter: 'Q1 2027', note: 'Architecture assessment underway', progress: 15 },
@@ -265,7 +265,7 @@ export default function MigrationPage() {
       <div className="flex-1 py-1 min-w-0">
         <div className="w-full pb-10">
           {/* Responsive Header */}
-          <Header title="Brisque OPS" subtitle="Operations Command Center" searchPlaceholder="Search Migrations..." />
+          <Header title="Orbit OPS" subtitle="Operations Command Center" searchPlaceholder="Search Migrations..." />
 
           {/* Main Dashboard Blocks */}
           <motion.main 

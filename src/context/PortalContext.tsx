@@ -125,7 +125,7 @@ interface PortalContextType {
 
 const DEFAULT_USER: UserProfile = {
   name: 'John Doe',
-  email: 'john.doe@brisque.com',
+  email: 'john.doe@orbit.com',
   role: 'Admin',
   department: 'Operations Command',
   phone: '+1 (555) 019-2834',
@@ -392,7 +392,7 @@ export function PortalProvider({ children }: { children: React.ReactNode }) {
   // ── Collapsed Sidebar ───────────────────────────────────────
   const [isCollapsed, setIsCollapsed] = useState<boolean>(() => {
     try {
-      const saved = localStorage.getItem('brisque_sidebar_collapsed')
+      const saved = localStorage.getItem('orbit_sidebar_collapsed') ?? localStorage.getItem('brisque_sidebar_collapsed')
       return saved ? JSON.parse(saved) : false
     } catch {
       return false
@@ -401,7 +401,7 @@ export function PortalProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem('brisque_sidebar_collapsed', JSON.stringify(isCollapsed))
+      localStorage.setItem('orbit_sidebar_collapsed', JSON.stringify(isCollapsed))
     } catch (e) {
       console.error(e)
     }
@@ -435,7 +435,7 @@ export function PortalProvider({ children }: { children: React.ReactNode }) {
   // ── Client Store (Persisted) ────────────────────────────────
   const [clients, setClients] = useState<ClientItem[]>(() => {
     try {
-      const saved = localStorage.getItem('brisque_clients_data')
+      const saved = localStorage.getItem('orbit_clients_data') ?? localStorage.getItem('brisque_clients_data')
       if (saved) {
         const parsed = JSON.parse(saved)
         if (Array.isArray(parsed) && parsed.length > 0) {
@@ -450,7 +450,7 @@ export function PortalProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem('brisque_clients_data', JSON.stringify(clients))
+      localStorage.setItem('orbit_clients_data', JSON.stringify(clients))
     } catch (e) {
       console.error(e)
     }
@@ -473,7 +473,7 @@ export function PortalProvider({ children }: { children: React.ReactNode }) {
   // ── Column Visibility ───────────────────────────────────────
   const [visibleColumns, setVisibleColumns] = useState<{ [key: string]: boolean }>(() => {
     try {
-      const saved = localStorage.getItem('brisque_table_columns')
+      const saved = localStorage.getItem('orbit_table_columns') ?? localStorage.getItem('brisque_table_columns')
       if (saved) return JSON.parse(saved)
     } catch (e) {
       console.error(e)
@@ -483,7 +483,7 @@ export function PortalProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem('brisque_table_columns', JSON.stringify(visibleColumns))
+      localStorage.setItem('orbit_table_columns', JSON.stringify(visibleColumns))
     } catch (e) {
       console.error(e)
     }
@@ -513,7 +513,7 @@ export function PortalProvider({ children }: { children: React.ReactNode }) {
   // ── User Profile ────────────────────────────────────────────
   const [user, setUser] = useState<UserProfile>(() => {
     try {
-      const saved = localStorage.getItem('brisque_user_profile')
+      const saved = localStorage.getItem('orbit_user_profile') ?? localStorage.getItem('brisque_user_profile')
       if (saved) return JSON.parse(saved)
     } catch (e) {
       console.error(e)
@@ -528,7 +528,7 @@ export function PortalProvider({ children }: { children: React.ReactNode }) {
         updated.avatarInitial = updates.name.trim().charAt(0).toUpperCase()
       }
       try {
-        localStorage.setItem('brisque_user_profile', JSON.stringify(updated))
+        localStorage.setItem('orbit_user_profile', JSON.stringify(updated))
       } catch (e) {
         console.error(e)
       }
@@ -539,7 +539,7 @@ export function PortalProvider({ children }: { children: React.ReactNode }) {
   // ── System Settings ─────────────────────────────────────────
   const [settings, setSettings] = useState<PortalSettings>(() => {
     try {
-      const saved = localStorage.getItem('brisque_portal_settings')
+      const saved = localStorage.getItem('orbit_portal_settings') ?? localStorage.getItem('brisque_portal_settings')
       if (saved) return JSON.parse(saved)
     } catch (e) {
       console.error(e)
@@ -551,7 +551,7 @@ export function PortalProvider({ children }: { children: React.ReactNode }) {
     setSettings((prev) => {
       const updated = { ...prev, ...updates }
       try {
-        localStorage.setItem('brisque_portal_settings', JSON.stringify(updated))
+        localStorage.setItem('orbit_portal_settings', JSON.stringify(updated))
       } catch (e) {
         console.error(e)
       }

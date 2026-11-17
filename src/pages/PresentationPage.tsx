@@ -6,7 +6,7 @@ import {
   Rocket, Globe, CheckCircle2, ShieldCheck, Tag, Heart, Sparkles, CalendarDays,
   ArrowLeft, LayoutDashboard
 } from 'lucide-react'
-import logoImg from '../assets/red logo.png'
+import OrbitLogo from '../components/OrbitLogo'
 import { usePortal } from '../context/PortalContext'
 
 const getStatusLabel = (c: any) => (typeof c?.status === 'object' ? c?.status?.label : c?.status) || ''
@@ -77,7 +77,7 @@ export default function PresentationPage() {
                 <h3 className="text-[17px] font-bold text-neutral-900">Executive Summary & Operational Posture</h3>
               </div>
               <p className="text-[13.5px] text-neutral-600 leading-relaxed">
-                Brisque Operations Command Center manages client hospitality sites across the United States, United Kingdom, and the UAE. Our modern Next.js 14 stack delivers high-speed menu renders, instant cart updates, and direct POS synchronization for Clover and Toast.
+                Orbit Operations Command Center manages client hospitality sites across the United States, United Kingdom, and the UAE. Our modern Next.js 14 stack delivers high-speed menu renders, instant cart updates, and direct POS synchronization for Clover and Toast.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                 <div className="rounded-xl bg-[#f8f9fa] p-4 border border-neutral-100">
@@ -164,7 +164,7 @@ export default function PresentationPage() {
                   Financial Performance
                 </span>
                 <p className="text-[44px] font-extrabold leading-none tracking-tight">$1.84M</p>
-                <p className="text-[14px] text-neutral-300 mt-2 font-medium">Monthly volume through Brisque Embedded Ordering</p>
+                <p className="text-[14px] text-neutral-300 mt-2 font-medium">Monthly volume through Orbit Embedded Ordering</p>
                 <p className="text-[12px] text-neutral-500 mt-1">Up +28% quarter-over-quarter</p>
               </div>
 
@@ -466,7 +466,7 @@ export default function PresentationPage() {
           <div className="h-5 w-px bg-neutral-200" />
 
           <div className="flex items-center gap-2">
-            <img src={logoImg} alt="Brisque" className="h-5 object-contain" />
+            <OrbitLogo size="sm" showTagline={false} />
             <span className="text-[12px] font-bold text-neutral-800 hidden md:inline">Executive Presentation</span>
           </div>
         </div>
@@ -527,7 +527,7 @@ export default function PresentationPage() {
           {/* Slide Heading */}
           <div className="text-center mb-6">
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#ef3340] bg-red-50 px-3 py-1 rounded-full border border-red-100 inline-block mb-2">
-              Brisque Executive Briefing • Slide {currentSlide + 1} of {totalSlides}
+              Orbit Executive Briefing • Slide {currentSlide + 1} of {totalSlides}
             </span>
             <h1 className="text-[24px] sm:text-[30px] font-extrabold text-neutral-900 tracking-tight">
               {activeSlide.title}

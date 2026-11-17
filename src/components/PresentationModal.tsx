@@ -63,7 +63,7 @@ export default function PresentationModal() {
             <div className="rounded-2xl bg-white p-6 border border-neutral-200 shadow-sm">
               <h3 className="text-[16px] font-bold text-neutral-900 mb-2">Executive Summary</h3>
               <p className="text-[13px] text-neutral-600 leading-relaxed">
-                Brisque Operations Command Center oversees restaurant web architecture and embedded ordering capabilities across North America, the UK, and UAE. Modernization to Next.js 14 App Router is on schedule with 75% complete cutover and 100% QA pass rate on live ordering gateways.
+                Orbit Operations Command Center oversees restaurant web architecture and embedded ordering capabilities across North America, the UK, and UAE. Modernization to Next.js 14 App Router is on schedule with 75% complete cutover and 100% QA pass rate on live ordering gateways.
               </p>
             </div>
           </div>
@@ -226,7 +226,7 @@ export default function PresentationModal() {
             <span className="text-[10.5px] font-bold text-[#22c55e] uppercase tracking-wider">Milestone 3</span>
             <h4 className="text-[15px] font-bold text-neutral-900 mt-2">Universal Customer App</h4>
             <p className="text-[12px] text-neutral-600 mt-2 leading-relaxed">
-              Roll out PWA companion application allowing repeat diners to re-order across all Brisque partner restaurants.
+              Roll out PWA companion application allowing repeat diners to re-order across all Orbit partner restaurants.
             </p>
           </div>
         </div>
@@ -299,7 +299,7 @@ export default function PresentationModal() {
         <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-neutral-200 shrink-0">
           <div>
             <span className="text-[10px] font-bold uppercase tracking-wider text-[#ef3340]">
-              Brisque Executive Briefing
+              Orbit Executive Briefing
             </span>
             <h2 className="text-[17px] font-bold text-neutral-900">{activeSlide.title}</h2>
             <p className="text-[11.5px] text-neutral-500">{activeSlide.subtitle}</p>

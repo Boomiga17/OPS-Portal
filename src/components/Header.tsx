@@ -31,7 +31,7 @@ interface HeaderProps {
 }
 
 export default function Header({
-  title = 'Brisque OPS',
+  title = 'Orbit OPS',
   subtitle = 'Operations Command Center',
   searchPlaceholder = "Search Anything's...",
 }: HeaderProps) {

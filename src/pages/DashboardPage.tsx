@@ -323,7 +323,7 @@ export default function DashboardPage() {
       <div className="flex-1 py-1 min-w-0">
         <div className="w-full pb-10">
           {/* Responsive Header */}
-          <Header title="Brisque OPS" subtitle="Operations Command Center" />
+          <Header title="Orbit OPS" subtitle="Operations Command Center" />
 
           {/* Main Dashboard Blocks */}
           <motion.main 

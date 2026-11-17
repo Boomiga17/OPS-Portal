@@ -96,7 +96,7 @@ export default function ImportExportModal() {
     const encodedUri = encodeURI(csvContent)
     const link = document.createElement('a')
     link.setAttribute('href', encodedUri)
-    link.setAttribute('download', `brisque-clients-${new Date().toISOString().split('T')[0]}.csv`)
+    link.setAttribute('download', `orbit-clients-${new Date().toISOString().split('T')[0]}.csv`)
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -107,7 +107,7 @@ export default function ImportExportModal() {
     const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(clients, null, 2))
     const link = document.createElement('a')
     link.setAttribute('href', dataStr)
-    link.setAttribute('download', `brisque-clients-${new Date().toISOString().split('T')[0]}.json`)
+    link.setAttribute('download', `orbit-clients-${new Date().toISOString().split('T')[0]}.json`)
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -169,7 +169,7 @@ export default function ImportExportModal() {
             <div className="rounded-xl border-2 border-dashed border-neutral-200 p-6 text-center hover:border-[#ef3340] transition-colors cursor-pointer bg-[#f8f9fa]">
               <FileText size={28} className="mx-auto text-neutral-400 mb-2" />
               <p className="font-bold text-[12.5px] text-neutral-800">Drop CSV or JSON file here</p>
-              <p className="text-[11px] text-neutral-500 mt-1">Supports standard Brisque or POS client formats</p>
+              <p className="text-[11px] text-neutral-500 mt-1">Supports standard Orbit or POS client formats</p>
             </div>
 
             <div className="pt-2">

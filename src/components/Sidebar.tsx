@@ -16,8 +16,8 @@ import {
 } from 'lucide-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import logoImg from '../assets/red logo.png'
-import iconImg from '../assets/Brisque Icon 1.png'
+import OrbitLogo from './OrbitLogo'
+import OrbitIcon from './OrbitIcon'
 import { usePortal } from '../context/PortalContext'
 
 const NAV_ITEMS = [
@@ -83,10 +83,10 @@ export default function Sidebar() {
                 <Link
                   to="/dashboard"
                   onClick={closeMobileNav}
-                  className="bg-white sidebar-logo-card rounded-[14px] py-2.5 px-4 flex items-center justify-center shadow-sm"
-                  title="Brisque OPS"
+                  className="bg-white sidebar-logo-card rounded-[14px] py-2 px-3.5 flex items-center justify-center shadow-sm"
+                  title="Orbit OPS"
                 >
-                  <img src={logoImg} alt="Brisque" className="h-6 object-contain" />
+                  <OrbitLogo size="sm" showTagline={false} />
                 </Link>
                 <button
                   type="button"
@@ -174,14 +174,14 @@ export default function Sidebar() {
           <Link
             to="/dashboard"
             className={`bg-white sidebar-logo-card rounded-[14px] flex items-center justify-center shadow-sm transition-all hover:opacity-95 ${
-              isCollapsed ? 'h-12 w-12 mx-auto mb-6 py-1 px-1' : 'py-3.5 px-4 mb-8 h-[52px]'
+              isCollapsed ? 'h-12 w-12 mx-auto mb-6 py-1 px-1' : 'py-2.5 px-3.5 mb-8 h-[52px]'
             }`}
-            title="Brisque OPS"
+            title="Orbit OPS"
           >
             {isCollapsed ? (
-              <img src={iconImg} alt="Brisque" className="h-7 w-7 object-contain" />
+              <OrbitIcon size={28} />
             ) : (
-              <img src={logoImg} alt="Brisque" className="h-6 object-contain" />
+              <OrbitLogo size="sm" showTagline={false} />
             )}
           </Link>
         </div>

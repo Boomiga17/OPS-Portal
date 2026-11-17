@@ -142,7 +142,7 @@ function SettingsModalDialog() {
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-neutral-900">{profileForm.name || 'John Doe'}</h3>
-                    <p className="text-xs text-neutral-400">{profileForm.email || 'john.doe@brisque.com'}</p>
+                    <p className="text-xs text-neutral-400">{profileForm.email || 'john.doe@orbit.com'}</p>
                     <span className="mt-1 inline-block rounded-full bg-[#fff1f2] px-2 py-0.5 text-[10px] font-semibold text-[#ef3340]">
                       {profileForm.role}
                     </span>
@@ -167,7 +167,7 @@ function SettingsModalDialog() {
                       value={profileForm.email}
                       onChange={(e) => setProfileForm({ ...profileForm, email: e.target.value })}
                       className="w-full rounded-xl border border-neutral-200 bg-white px-3.5 py-2 text-xs text-neutral-900 focus:border-[#ef3340] focus:outline-none focus:ring-1 focus:ring-[#ef3340]"
-                      placeholder="john.doe@brisque.com"
+                      placeholder="john.doe@orbit.com"
                     />
                   </div>
                   <div>
@@ -273,7 +273,7 @@ function SettingsModalDialog() {
                   <label className="block text-xs font-semibold text-neutral-700 mb-2">Accent Brand Color</label>
                   <div className="flex items-center gap-3">
                     {[
-                      { color: '#ef3340', label: 'Brisque Red' },
+                      { color: '#ef3340', label: 'Orbit Red' },
                       { color: '#3b82f6', label: 'Royal Blue' },
                       { color: '#10b981', label: 'Emerald' },
                       { color: '#f59e0b', label: 'Amber' },

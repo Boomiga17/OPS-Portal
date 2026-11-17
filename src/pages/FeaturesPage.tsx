@@ -138,7 +138,7 @@ export default function FeaturesPage() {
       <div className="flex-1 py-1 min-w-0">
         <div className="w-full pb-10">
           {/* Responsive Header */}
-          <Header title="Brisque OPS" subtitle="Operations Command Center" searchPlaceholder="Search Features..." />
+          <Header title="Orbit OPS" subtitle="Operations Command Center" searchPlaceholder="Search Features..." />
 
           {/* Main Dashboard Blocks */}
           <motion.main 

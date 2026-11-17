@@ -1,10 +1,10 @@
-import whiteLogo from '../assets/white logo.png'
+import OrbitLogo from './OrbitLogo'
 
 type Props = {
   className?: string
-  variant?: 'light' | 'dark'
+  variant?: 'light' | 'dark' | 'color' | 'white'
 }
 
-export default function BrisqueLogo({ className = '' }: Props) {
-  return <img src={whiteLogo} alt="brisque" className={`w-24 ${className}`} />
+export default function BrisqueLogo({ className = '', variant = 'color' }: Props) {
+  return <OrbitLogo className={className} variant={variant === 'light' ? 'white' : variant} />
 }
