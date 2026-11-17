@@ -86,7 +86,7 @@ export default function Sidebar() {
                   className="bg-white sidebar-logo-card rounded-[14px] py-2 px-3.5 flex items-center justify-center shadow-sm"
                   title="Orbit OPS"
                 >
-                  <OrbitLogo size="sm" showTagline={false} />
+                  <OrbitLogo size="sm" />
                 </Link>
                 <button
                   type="button"
@@ -181,7 +181,7 @@ export default function Sidebar() {
             {isCollapsed ? (
               <OrbitIcon size={28} />
             ) : (
-              <OrbitLogo size="sm" showTagline={false} />
+              <OrbitLogo size="sm" />
             )}
           </Link>
         </div>

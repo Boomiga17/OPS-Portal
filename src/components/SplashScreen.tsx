@@ -1,29 +1,21 @@
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import OrbitIcon from './OrbitIcon'
+import logoImg from '../assets/orbit-logo-color.png'
 
 interface SplashScreenProps {
   onComplete: () => void
 }
 
-// Smooth expo-out curve — fast start, silky deceleration
 const EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1]
-const LAYOUT = { duration: 0.75, ease: EXPO }
 
 export default function SplashScreen({ onComplete }: SplashScreenProps) {
   const [phase, setPhase] = useState(0)
-  /**
-   * 0 → white canvas                         (0ms)
-   * 1 → orbit icon glides in from above      (400ms)
-   * 2 → "orbit" glides in from right         (1500ms)
-   * 3 → fade out                             (3600ms)
-   */
+
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase(1),  400),
-      setTimeout(() => setPhase(2), 1500),
-      setTimeout(() => setPhase(3), 3600),
-      setTimeout(onComplete,        4200),
+      setTimeout(() => setPhase(1), 300),
+      setTimeout(() => setPhase(2), 2600),
+      setTimeout(onComplete, 3200),
     ]
     return () => t.forEach(clearTimeout)
   }, [onComplete])
@@ -31,65 +23,28 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
   return (
     <motion.div
       className="fixed inset-0 z-[9999] bg-white flex items-center justify-center overflow-hidden"
-      animate={{ opacity: phase === 3 ? 0 : 1 }}
+      animate={{ opacity: phase === 2 ? 0 : 1 }}
       transition={{ duration: 0.6, ease: 'easeInOut' }}
     >
       <motion.div
-        layout
-        className="flex items-center"
-        style={{ gap: phase >= 2 ? 14 : 0 }}
-        transition={LAYOUT}
+        className="flex items-center justify-center p-6"
+        initial={{ opacity: 0, scale: 0.82, filter: 'blur(12px)' }}
+        animate={{
+          opacity: phase >= 1 ? 1 : 0,
+          scale: phase >= 1 ? 1 : 0.82,
+          filter: phase >= 1 ? 'blur(0px)' : 'blur(12px)',
+        }}
+        transition={{
+          opacity: { duration: 0.65, ease: EXPO },
+          scale: { duration: 0.9, ease: EXPO },
+          filter: { duration: 0.7, ease: 'easeOut' },
+        }}
       >
-        {/* ── Orbit icon symbol ── */}
-        <AnimatePresence>
-          {phase >= 1 && (
-            <motion.div layout transition={LAYOUT}>
-              <motion.div
-                initial={{ opacity: 0, y: -28, scale: 0.72, filter: 'blur(10px)' }}
-                animate={{ opacity: 1, y: 0,   scale: 1,    filter: 'blur(0px)'  }}
-                transition={{
-                  opacity: { duration: 0.6,  ease: EXPO },
-                  y:       { duration: 0.85, ease: EXPO },
-                  scale:   { duration: 0.85, ease: EXPO },
-                  filter:  { duration: 0.7,  ease: 'easeOut' },
-                }}
-              >
-                <OrbitIcon size={64} />
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* ── Brand name ── */}
-        <AnimatePresence>
-          {phase >= 2 && (
-            <motion.div
-              className="overflow-hidden"
-              initial={{ width: 0 }}
-              animate={{ width: 'auto' }}
-              transition={LAYOUT}
-            >
-              <motion.span
-                className="block whitespace-nowrap font-black text-neutral-900 tracking-[0.14em] uppercase"
-                style={{
-                  fontSize: 48,
-                  fontFamily: "'Roboto', system-ui, sans-serif",
-                  lineHeight: 1,
-                }}
-                initial={{ opacity: 0, x: 50, filter: 'blur(8px)' }}
-                animate={{ opacity: 1, x: 0,  filter: 'blur(0px)' }}
-                transition={{
-                  opacity: { duration: 0.55, ease: EXPO },
-                  x:       { duration: 0.75, ease: EXPO },
-                  filter:  { duration: 0.65, ease: 'easeOut' },
-                  delay: 0.05,
-                }}
-              >
-                ORBIT
-              </motion.span>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <img
+          src={logoImg}
+          alt="Orbit"
+          className="h-16 sm:h-20 w-auto object-contain select-none"
+        />
       </motion.div>
     </motion.div>
   )

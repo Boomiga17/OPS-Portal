@@ -466,7 +466,7 @@ export default function PresentationPage() {
           <div className="h-5 w-px bg-neutral-200" />
 
           <div className="flex items-center gap-2">
-            <OrbitLogo size="sm" showTagline={false} />
+            <OrbitLogo size="sm" />
             <span className="text-[12px] font-bold text-neutral-800 hidden md:inline">Executive Presentation</span>
           </div>
         </div>

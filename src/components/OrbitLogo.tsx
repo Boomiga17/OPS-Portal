@@ -1,3 +1,6 @@
+import logoColor from '../assets/orbit-logo-color.png'
+import logoWhiteText from '../assets/orbit-logo-white-text.png'
+import logoAllWhite from '../assets/orbit-logo-all-white.png'
 import OrbitIcon from './OrbitIcon'
 
 interface OrbitLogoProps {
@@ -5,7 +8,6 @@ interface OrbitLogoProps {
   variant?: 'color' | 'white' | 'dark'
   iconOnly?: boolean
   size?: 'sm' | 'md' | 'lg'
-  showTagline?: boolean
 }
 
 export default function OrbitLogo({
@@ -14,29 +16,29 @@ export default function OrbitLogo({
   iconOnly = false,
   size = 'md',
 }: OrbitLogoProps) {
-  const iconPixelSizes = {
-    sm: 24,
-    md: 32,
-    lg: 44,
+  if (iconOnly) {
+    const iconSizes = { sm: 26, md: 34, lg: 46 }
+    return <OrbitIcon size={iconSizes[size]} className={className} />
   }
 
-  const isWhite = variant === 'white'
+  const sizeClasses = {
+    sm: 'h-6 sm:h-7',
+    md: 'h-8 sm:h-9',
+    lg: 'h-11 sm:h-12',
+  }
 
-  if (iconOnly) {
-    return <OrbitIcon size={iconPixelSizes[size]} variant={variant} className={className} />
+  let src = logoColor
+  if (variant === 'white') {
+    src = logoAllWhite
+  } else if (variant === 'dark') {
+    src = logoWhiteText
   }
 
   return (
-    <div className={`inline-flex items-center gap-2.5 select-none ${className}`}>
-      <OrbitIcon size={iconPixelSizes[size]} variant={variant} />
-      <span
-        className={`font-black tracking-[0.14em] uppercase leading-none ${
-          size === 'sm' ? 'text-sm' : size === 'lg' ? 'text-2xl' : 'text-lg'
-        } ${isWhite ? 'text-white' : 'text-neutral-900'}`}
-        style={{ fontFamily: "'Roboto', system-ui, sans-serif" }}
-      >
-        ORBIT
-      </span>
-    </div>
+    <img
+      src={src}
+      alt="Orbit"
+      className={`object-contain select-none w-auto ${sizeClasses[size]} ${className}`}
+    />
   )
 }
